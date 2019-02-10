@@ -1,0 +1,13 @@
+NaiveBayes
+0.833 (Accuracy)
+0.951 (Precision for class 1)
+0.975 (Recall for class 1)
+0.875 (Precision for class 5)
+0.778 (Recall for class 5)
+
+LogisticRegression
+0.954 (Accuracy)
+0.956 (Precision for class 0)
+0.971 (Recall for class 0)
+0.949 (Precision for class 1)
+0.925 (Recall for class 1)
