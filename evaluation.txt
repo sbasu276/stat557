@@ -6,10 +6,10 @@ Naive Bayes Classifier
 0.778 (Recall for class 5)
 ============
 Logistic Regression Classifier
-0.954 (Accuracy)
-0.957 (Precision for class 0)
-0.971 (Recall for class 0)
-0.949 (Precision for class 1)
+0.963 (Accuracy)
+0.958 (Precision for class 0)
+0.986 (Recall for class 0)
+0.974 (Precision for class 1)
 0.925 (Recall for class 1)
 ============
 Naive Bayes Classifier for New Ecoli

@@ -96,6 +96,7 @@ logisticRegressionWeights <- function(xTrain, yTrain, w0, nIter){
 logisticRegressionClassify <- function(xTest, w){
     p = apply(xTest, 1, FUN=function(x) sigmoidProb(1, x, w))
     t = as.integer(p>=0.5)
+    t = cbind(t)
     return(t)
 }
 
@@ -135,7 +136,7 @@ evaluate <- function(pred, ref) {
 }
 
 ### Evaluation Part 2 ###
-sink("evaluation.txt", append=FALSE, split=TRUE)
+#sink("evaluation.txt", append=FALSE, split=TRUE)
 p = prior(yTrain)
 L = likelihood(xTrain, yTrain)
 t = naiveBayesClassify(xTest, L$M, L$V, p)
@@ -150,10 +151,10 @@ cat('============\n')
 
 ### Evaluation Part 3 ###
 w0 = c(rep(1,ncol(new_xTrain)))
-nIter = 100
+nIter = 180
 w = logisticRegressionWeights(new_xTrain, new_yTrain, w0, nIter)
 t = logisticRegressionClassify(new_xTest, w)
-res = evaluate(factor(t), factor(new_yTest[,1]))
+res = evaluate(factor(t[,1]), factor(new_yTest[,1]))
 cat(sprintf('Logistic Regression Classifier\n'))
 cat(sprintf('%s (Accuracy)\n', res$accuracy))
 cat(sprintf('%s (Precision for class 0)\n', getPrecision(res$confMat, 0)))
@@ -173,4 +174,4 @@ cat(sprintf('%s (Precision for class 0)\n', getPrecision(res$confMat, 0)))
 cat(sprintf('%s (Recall for class 0)\n', getRecall(res$confMat, 0)))
 cat(sprintf('%s (Precision for class 1)\n', getPrecision(res$confMat, 1)))
 cat(sprintf('%s (Recall for class 1)\n', getRecall(res$confMat, 1)))
-sink()
+#sink()
